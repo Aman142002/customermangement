@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Integration Assignment</title>
+</head>
+<body>
+
+  <div id="loginScreen">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="login_id">Username:</label>
+      <input type="text" id="login_id" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      <button type="button" onclick="authenticateUser()">Login</button>
+    </form>
+  </div>
+
+  <div id="customerListScreen" style="display: none;">
+    <h2>Customer List</h2>
+    <button onclick="loadCustomerList()">Load Customer List</button>
+    <table id="customerTable" border="1">
+    </table>
+  </div>
+
+  <div id="addCustomerScreen" style="display: none;">
+    <h2>Add New Customer</h2>
+    <form id="addCustomerForm">
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" required>
+      <label for="last_name">Last Name:</label>
+      <input type="text" id="last_name" required>
+      <label for="street">Street:</label>
+      <input type="text" id="street" required>
+      <label for="address">Address:</label>
+      <input type="text" id="address" required>
+      <label for="city">City:</label>
+      <input type="text" id="city" required>
+      <label for="state">State:</label>
+      <input type="text" id="state" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" required>
+      <button type="button" onclick="createCustomer()">Create Customer</button>
+    </form>
+  </div>
+
+  <script>
+    let authToken = '';
+
+    function authenticateUser() {
+      const loginId = document.getElementById('login_id').value;
+      const password = document.getElementById('password').value;
+
+
+      authToken = 'sampleBearerToken';
+
+      showScreen('customerListScreen');
+    }
+
+    function loadCustomerList() {
+    }
+
+    function createCustomer() {
+      const firstName = document.getElementById('first_name').value;
+      const lastName = document.getElementById('last_name').value;
+      const street = document.getElementById('street').value;
+      const address = document.getElementById('address').value;
+      const city = document.getElementById('city').value;
+      const state = document.getElementById('state').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+    }
+
+    function showScreen(screenId) {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('customerListScreen').style.display = 'none';
+      document.getElementById('addCustomerScreen').style.display = 'none';
+
+      document.getElementById(screenId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
